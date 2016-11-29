@@ -1,0 +1,27 @@
+{
+  "name": "sc-challenge-store-page",
+  "version": "1.0.0",
+  "description": "Create a simple store page from a given product feed.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damonnguyen92/SC-store-page-challenge.git"
+  },
+  "author": "Damon Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/damonnguyen92/SC-store-page-challenge/issues"
+  },
+  "homepage": "https://github.com/damonnguyen92/SC-store-page-challenge#readme",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "nodemon": "^1.11.0",
+    "react": "^15.4.1"
+  }
+}
