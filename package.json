@@ -18,10 +18,14 @@
   "homepage": "https://github.com/damonnguyen92/SC-store-page-challenge#readme",
   "dependencies": {
     "angular": "^1.5.9",
+    "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
+    "ejs": "^2.5.3",
     "express": "^4.14.0",
+    "express-ejs-layouts": "^2.2.0",
     "jquery": "^3.1.1",
     "nodemon": "^1.11.0",
+    "path": "^0.12.7",
     "react": "^15.4.1"
   }
 }
