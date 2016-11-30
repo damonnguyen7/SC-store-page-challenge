@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="margin-bottom: 0px;">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li><a ui-sref="home">Home</a></li>
@@ -7,4 +7,15 @@
   </div>
 </nav>
 
-<h1>welcome to the store!</h1>
+<div class="card-container container">
+  <div ng-repeat="(key, value) in items" class="card">
+    <div class="card-block">
+      <h4 class="card-title">{{value.name}}</h4>
+    </div>
+    <img src="{{value.image}}" alt="Card image" class="img-card">
+    <div class="card-block">
+      <p class="card-text">{{value.penny * .01 | currency }}</p>
+    </div>
+  </div>
+</div>
+  
