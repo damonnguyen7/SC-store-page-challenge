@@ -5,3 +5,38 @@
   margin-left: auto; 
   margin-right: auto;
 }
+
+.card-container {
+
+}
+
+.card {
+  display: inline-block;
+  background-color: #F8F8F8;
+  height: 300px;
+  width: 300px;
+  /*border: .1px solid gray;*/
+  margin: 10px 25px 10px 25px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card h4 {
+  color: #7c7979;
+  text-align: center;
+}
+
+.card p {
+  text-align: center;
+  padding-top: 7px;
+}
+
+.img-card {
+  display: block;
+  height: 225px;
+  width: 225px;
+  margin-left: auto; 
+  margin-right: auto;
+}
