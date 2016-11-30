@@ -10,11 +10,11 @@ var app = express();
 app.set('view engine', 'ejs');
 
 //Middleware:
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(expressLayouts); //override the default response.render() behavior
 app.use('/', router); 
 app.use(bodyParser.json);
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '/public')));
 
 //Boot up server
 app.listen(port, function() {
