@@ -30,7 +30,7 @@ angular.module('Store', [])
         return {
           id: item.id,
           name: item.name,
-          price: item.defaultPriceInCents,
+          penny: item.defaultPriceInCents,
           image: item.mainImage.ref
         }
       });
