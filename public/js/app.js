@@ -22,6 +22,26 @@ angular.module('Home', [])
   })
 
 angular.module('Store', [])
-  .controller('StoreController', function(){
-
+  .controller('StoreController', function($scope, RetrieveData){
+    $scope.items;
+    //Retrieve the data that I want.
+    function parseData(items) {
+      return items.map(function(item) {
+        return {
+          id: item.id,
+          name: item.name,
+          price: item.defaultPriceInCents,
+          image: item.mainImage.ref
+        }
+      });
+    }
+    RetrieveData.getItems().success(function(response) {
+      $scope.items = parseData(response.products);
+      console.log('$scope.items:', $scope.items);
+    });
+  })
+  .service('RetrieveData', function($http) {
+    this.getItems = function() {
+      return $http.get('https://sneakpeeq-sites.s3.amazonaws.com/interviews/ce/feeds/store.js')
+    }
   })
