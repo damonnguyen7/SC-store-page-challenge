@@ -18,7 +18,7 @@ angular.module('App', ['ui.router', 'Home', 'Store'])
 
 angular.module('Home', [])
   .controller('HomeController', function($scope){
-    $scope.name = "Damon";
+    //No functionality for HomeController
   })
 
 angular.module('Store', [])
@@ -41,8 +41,8 @@ angular.module('Store', [])
       $scope.items = parseData(response.products);
       console.log('$scope.items:', $scope.items);
     });
-
   })
+
   .filter('lessThanTwenty', function() {
     return function(items, filter) {
       //if filter is undefined
@@ -56,10 +56,28 @@ angular.module('Store', [])
           }
         }
       }
-
       return itemsLessThanTwenty;
     }
   })
+
+  .filter('mutateString', function() {
+    return function(itemName) {
+      var arrayOfWords = itemName.split(' ');
+
+      arrayOfWords = arrayOfWords.map(function(word) {
+        if (word === 'FIJI') {
+          return word;
+        } else if (word[0].match('[a-zA-Z]+') === null) {
+          return word;
+        } else {
+          return word[0].toUpperCase() + word.slice(1).toLowerCase();
+        }
+      });
+      
+      return arrayOfWords.join(' ');
+    }
+  })
+  
   .service('RetrieveData', function($http) {
     this.getItems = function() {
       return $http.get('https://sneakpeeq-sites.s3.amazonaws.com/interviews/ce/feeds/store.js')
