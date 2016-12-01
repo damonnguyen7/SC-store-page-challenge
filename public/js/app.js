@@ -24,21 +24,41 @@ angular.module('Home', [])
 angular.module('Store', [])
   .controller('StoreController', function($scope, RetrieveData){
     $scope.items;
-    //Retrieve the data that I want.
+    
     function parseData(items) {
       return items.map(function(item) {
         return {
           id: item.id,
           name: item.name,
           penny: item.defaultPriceInCents,
-          image: item.mainImage.ref
+          image: item.mainImage.ref,
+          date: item.createdAt
         }
       });
     }
+
     RetrieveData.getItems().success(function(response) {
       $scope.items = parseData(response.products);
       console.log('$scope.items:', $scope.items);
     });
+
+  })
+  .filter('lessThanTwenty', function() {
+    return function(items, filter) {
+      //if filter is undefined
+      if (filter === undefined) {
+        return items;
+      } else {
+        var itemsLessThanTwenty = [];
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].penny <= 1999) {
+            itemsLessThanTwenty.push(items[i]);
+          }
+        }
+      }
+
+      return itemsLessThanTwenty;
+    }
   })
   .service('RetrieveData', function($http) {
     this.getItems = function() {
